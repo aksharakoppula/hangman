@@ -12,5 +12,11 @@ word = random.choice(word_bank)
 word_spaces = []
 for num in range(len(word)-1):
     word_spaces.append("_")
-print(word_spaces)
-print(word)
+    
+output = ""
+for i in range(len(word_spaces)):
+    output += word_spaces[i]
+    if i != len(word_spaces)-1:
+        output += " "
+    
+print(output)
