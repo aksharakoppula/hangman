@@ -8,13 +8,13 @@ def load_words():
 
 load_words()
 word = random.choice(word_bank)
+print(word)
 
 word_spaces = []
 
-for num in range(len(word)):
+for num in range(len(word) - 1):
     word_spaces.append("_")
     
-
 def show_progress(word_spaces):
     output = ""    
     for i in range(len(word_spaces)):
@@ -46,6 +46,18 @@ while running:
     if count == 0:
         lives -=1
         print(f"Your guess was not in the word, you have {lives} lives left\n")
+    if lives == 0:
+        print(f"You have lost the game. The word was: {word}")
+        running = False
+    else:
+        finished = True
+        for item in word_spaces:
+            if item == "_":
+                finished = False
+                break
+        if finished:
+            print(f"You won! The word was: {word}")
+            running = False
 
 
  
